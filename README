@@ -1,0 +1,20 @@
+This is a python package for basic recursive least squares (RLS) estimation.
+
+The primary implementation is a (more or less) direct extension of the batch
+method for ordinary least squares. This is _not_ the standard RLS filter you
+will see in the literature, but what some refer to as the `data matrix form.'
+
+I may also include the `normal form' as another implementation in the future,
+if and when I get time. (Feel free to implement it yourself and send me a 
+pull request.)
+
+rlspy is intended to work primarily with numpy, but I would be open to more 
+general implementation and packaging.
+
+M J Stanway
+
+This package is released under the MIT License. 
+See the included LICENSE file or go to:
+    http://www.opensource.org/licenses/mit-license.php
+for more details.
+
