@@ -62,12 +62,12 @@ class Estimator(object):
         self.I = np.identity(len(x0)) 
 
 
-    def __call__(self, A, b, V = None):
+    def __call__(self, A, b, V):
         """(convenience method) run self.update with given inputs."""
         self.update(A, b, V)
 
 
-    def update(self, A, b, V = None):
+    def update(self, A, b, V):
         """Recursively update the estimate given new data.
 
         TODO: longer explanation with math
@@ -80,8 +80,6 @@ class Estimator(object):
             Data vector. (n-by-1)
 
         """
-        if not V: 
-            V = self.V # try using a default measurement noise covariance
         K = priorgain(self.P, A, V) # Kalman Gain
         y = b - np.dot(A, self.x) # innovation
         self.x = self.x + np.dot(K, y) # a posteriori estimate
