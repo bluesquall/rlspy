@@ -49,7 +49,7 @@ def posteriorgain(P, A, V):
     #   ...(but we're not planningon using this much)
 
 
-def Estimator(object):
+class Estimator(object):
     """Recursive Least Squares estimator (data matrix form)
 
     """
