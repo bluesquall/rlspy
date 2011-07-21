@@ -51,7 +51,7 @@ def single_priorgain(P, A, v):
 
     """
     PAT = np.dot(P, A.T) # should be a column vector
-    APATpV = np.dot(A, PAT) + v # should be a scalar
+    APATpV = np.dot(A, PAT)[0, 0] + v # should be a scalar
     return PAT / APATpV
 
 

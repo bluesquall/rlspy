@@ -15,12 +15,12 @@ import scipy.sparse
 
 import rlspy
 
-N = 10
-M = 20
+N = 1000
+M = 4
 rho = 0.7
 sigma_x = 1
 sigma_m = 0.1
-count = 10
+count = 100
 
 
 x0 = scipy.sparse.csc_matrix(numpy.zeros((N,1)))
@@ -31,10 +31,9 @@ Q = scipy.sparse.identity(M) * sigma_m
 x = scipy.sparse.csr_matrix(numpy.random.normal(0, sigma_x, (N, 1)))
 As = [scipy.sparse.rand(M, N, rho, format='csr') for i in range(count)]
 bs = [numpy.dot(A, x) for A in As]
-for b in bs: print b
 
 rlsi = rlspy.data_matrix_sparse.Estimator(x0, P0)
 for A, b in itertools.izip(As, bs):
     rlsi.consecutive_update(A, b, sigma_m)
 
-print rlsi.x - x
+print (rlsi.x - x).todense()
