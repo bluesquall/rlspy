@@ -9,3 +9,4 @@ in the `data matrix' form.
 
 """
 import data_matrix
+import data_matrix_sparse
